@@ -1,0 +1,9 @@
+*.mk
+*.pyc
+.checkpoint/
+.downloads/
+.tools/
+assets/
+build/
+dist/
+venv/
