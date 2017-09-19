@@ -44,5 +44,3 @@ class Kinematic(object):
         if self.movement:
             steer = self.movement.sterring()
             self.apply(steer, deltaTime)
-
-            # print self.position, self.rotation, self.velocity, deltaTime, self.max_acceleration

@@ -50,15 +50,12 @@ class GameScene(SceneBase):
 
         self.target = Missile(Vector(300, 300))
         self.missile.movement = Seek(self.missile, self.target)
-        # self.missiles = pygame.sprite.Group()
-        # self.missiles.add(self.missile)
 
     def process_input(self, events, keys):
         for e in events:
             if e.type == pygame.MOUSEMOTION:
                 self.target.position.x += e.rel[0]
                 self.target.position.y += e.rel[1]
-                print e.pos, e.rel
 
     def update(self, dt):
         self.missile.update(dt)
@@ -67,8 +64,6 @@ class GameScene(SceneBase):
         screen.fill(BLACK)
         self.missile.render(screen)
         self.target.render(screen)
-        # self.missiles.update(1, 2)
-        # self.missiles.draw(screen)
 
 
 
