@@ -45,26 +45,24 @@ class Arrive(object):
     def __init__(self, origin, target):
         self.origin = origin
         self.target = target
-        self.time_to_target = 0.1
-        self.target_radius = 6
-        self.slow_radius = 4
+        self.time_to_target = 0.5
+        self.target_radius = 1
+        self.slow_radius = 10
 
     def sterring(self):
         steer = Sterring()
-        direction = target.position - origin.position
+        direction = self.target.position - self.origin.position
         distance = direction.get_length()
 
-        if distance < target_radius:
+        if distance < self.target_radius:
             return None
         else:
-            target_speed = max_speed * distance / slow_radius
+            target_speed = self.origin.max_speed * distance / self.slow_radius
 
-        target_velocity = direction
-        target_velocity = target_velocity.normalized()
-        target_velocity *= target_speed
+        target_velocity = direction.normalized() * target_speed
 
-        steer.linear = target_velocity - origin.velocity
-        steer.linear /= time_to_target
+        steer.linear = target_velocity - self.origin.velocity
+        steer.linear /= self.time_to_target
 
         steer.angular = 0
         return steer
